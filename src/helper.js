@@ -34,18 +34,19 @@ const request = ({
     ...options,
   });
 
-  const parseName = (name)=>{
-    const result = name.match(/(\[Sale\])(\[(Rift|Quest|Rift-Quest-Cross-Buy)\])(.*)(\((.*)\/(.*)\))(.*)/);
-    const date = new Date(result[8].replace("until", "").trim());
-    return {
-      device:result[3], 
-      title: result[4].trim(), 
-      price: result[6], 
-      discount: result[7], 
-      endDate: date,
-      isExpired: date.getTime()<new Date().getTime()
-    }
+const parseName = (name)=>{
+  const result = name.match(/(\[Sale\])(\[(Rift|Quest|Rift-Quest-Cross-Buy)\])(.*)(\((.*)\/(.*)\))(.*)/);
+  const date = new Date(result[8].replace("until", "").trim());
+  return {
+    device:result[3], 
+    title: result[4].trim(), 
+    price: result[6], 
+    discount: result[7], 
+    endDate: date,
+    isExpired: date.getTime()<new Date().getTime()
   }
-module.exports = { request, parseName };
+}
+
+export { request, parseName };
 
 
