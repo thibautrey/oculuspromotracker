@@ -1,38 +1,72 @@
 .App {
+  padding: 50px;
+}
+
+.ExperienceContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
+
+.Experience {
+  cursor: pointer;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Experience img {
+  width: 140px;
+  height: 78px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.expired {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.expiredLabel {
+  border: 2px solid red;
+  font-weight: bold;
+  padding: 8px;
+  position: absolute;
+  margin-top: -63px !important;
+  margin-left: 73px !important;
+  color: red;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.filters {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.filters .container {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-column-gap: 20px;
+}
+
+.filters .container .deviceType {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-column-gap: 5px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.filters .container .priceRange {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-column-gap: 20px;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filters .container .priceRange .slider {
+  width: 200px;
 }
